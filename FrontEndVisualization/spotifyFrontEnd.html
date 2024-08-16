@@ -8,10 +8,27 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Spotify Data Visualization</h1>
+        <nav id="main-nav">
+            <ul id="data-options">
+                <li><a href="#" id="songs-option">Songs</a></li>
+                <li><a href="#" id="artists-option">Artists</a></li>
+            </ul>
+        </nav>
+        <nav id="sub-nav">
+            <ul id="time-options">
+                <li><a href="#" id="short-term-option">Short-term</a></li>
+                <li><a href="#" id="medium-term-option">Medium-term</a></li>
+                <li><a href="#" id="long-term-option">Long-term</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
         <canvas id="spotifyChart"></canvas>
     </div>
+
     <script src="spotifyFrontEnd.js"></script>
 </body>
 </html>
