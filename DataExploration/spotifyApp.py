@@ -38,7 +38,7 @@ combined_df = pd.concat(dfs, ignore_index=True)
 
 combined_df['timestamp'] = pd.to_datetime(combined_df['ts'])
 combined_df['timestamp'] = pd.to_datetime(combined_df['timestamp'].dt.floor('d')).dt.strftime('%Y-%m-%d')
-combined_df['timestamp'] = combined_df['timestamp'].dt.date
+#combined_df['timestamp'] = combined_df['timestamp'].dt.date
 #combined_df['timestamp'] = datetime.datetime.strptime(combined_df["timestamp"], '%Y-%m-%d').date()
 #combined_df['timestamp'] = pd.to_datetime(combined_df['timestamp'])
 
@@ -63,7 +63,12 @@ st.write(f"From {min_time} to {max_time}")
 filter_value = st.slider('Select a threshold for x', min_value=min_time, max_value=max_time, value=min_time)
 print(type(filter_value))
 
-filtered_df = combined_df[combined_df['timestamp'] > filter_value]
+print(type(combined_df['timestamp']))
+print(type(datetime.date(filter_value.year, filter_value.month, filter_value.day)))
+filtered_df = combined_df[combined_df['timestamp'] > datetime.date(filter_value.year, filter_value.month, filter_value.day)]
+
+#filtered_df = combined_df[combined_df['timestamp'] > filter_value]
+
 
 st.dataframe(combined_df)
 
